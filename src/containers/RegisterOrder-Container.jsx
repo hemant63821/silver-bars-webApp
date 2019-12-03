@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './RegisterOrder-Container.scss'
 
-class OrderDashboard extends Component {
+class RegisterOrderDashboard extends Component {
 
     render() {
         return (
@@ -12,4 +12,4 @@ class OrderDashboard extends Component {
     }
 }
 
-export default OrderDashboard;
+export default RegisterOrderDashboard; 
