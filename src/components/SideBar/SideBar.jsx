@@ -104,7 +104,7 @@ export default function MiniDrawer() {
     const navigateToRoute = (route) => {
         console.log('check incoming route', route)
         setHeaderName(route)
-        route === 'Register' ? history.push('/users') : history.push('/liveOrders')
+        route === 'Register' ? history.push('/register') : history.push('/liveOrders')
     }
 
     return (
