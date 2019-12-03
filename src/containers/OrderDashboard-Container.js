@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-import './UserDashboard-Container.scss'
-import Users from '../components/Users/Users'
+import './OrderDashboard-Container.scss'
 
-class UserDashboard extends Component {
+class OrderDashboard extends Component {
 
     render() {
         return (
             <div className="page-content grey-bg">
                 <div className="modelContainer">
-                    <Users></Users>
                 </div>
             </div>
         )
     }
 }
 
-export default UserDashboard;
+export default OrderDashboard;
