@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import './OrderDashboard-Container.scss'
+import './RegisterOrder-Container.scss'
 
 class OrderDashboard extends Component {
 
     render() {
         return (
-            <div className="page-content grey-bg">
-                <div className="modelContainer">
-                </div>
+            <div className="grey-bg">
+
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.scss';
-import { Router } from "react-router-dom";
+import { Router, useHistory } from "react-router-dom";
 import { Provider } from "react-redux";
 import history from './history';
 import Store from './Store';
@@ -12,8 +12,9 @@ import { users, loginData } from './localData'
 console.log('check', loginData)
 storeLoginData(loginData);
 storeUsers(users);
-
+history.push('/register')
 class App extends Component {
+
   render() {
     return (
       <Router history={history}>
