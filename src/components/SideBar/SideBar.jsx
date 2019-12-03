@@ -18,6 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import history from '../../history'
+import { Route } from 'react-router-dom';
+import RegisterOrder from '../../containers/RegisterOrder-Container.jsx';
+import LiveOrders from '../../containers/LiveOrder-Container.jsx'
 
 const drawerWidth = 240;
 
@@ -164,7 +167,10 @@ export default function MiniDrawer() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-
+                {/* <div className="App" > */}
+                <Route exact path="/register" component={RegisterOrder} />
+                <Route exact path="/liveOrders" component={LiveOrders} />
+                {/* </div> */}
             </main>
         </div>
     );

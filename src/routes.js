@@ -5,14 +5,11 @@ import Footer from './Layout/footer/Footer'
 import RegisterOrder from './containers/RegisterOrder-Container.jsx'
 import PrivateRoute from './PrivateRoute/PrivateRoute'
 import SideBar from './components/SideBar/SideBar'
+import LiveOrders from './containers/LiveOrder-Container.jsx'
 
 const wrappedRoutes = () => (
     <Fragment>
-
-        <div className="App" >
-            <Route exact path="/register" component={RegisterOrder} />
-        </div>
-        <SideBar></SideBar>
+        <SideBar>  </SideBar>
         <Footer></Footer>
     </Fragment>
 );
