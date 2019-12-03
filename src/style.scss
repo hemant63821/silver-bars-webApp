@@ -1,0 +1,38 @@
+  
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/material-design-icons/iconfont/material-icons.css";
+
+.grey-bg{background: #f9f9f9}
+
+.modelContainer{
+  margin: 0 auto;
+  width: auto;
+  max-width: 1680px;
+  padding: 70px;
+  // padding-right: 70px;
+  // padding-left: 70px;
+  // margin-bottom: 31px;
+  padding-top: 70px;
+  // padding-bottom: 70px;
+  overflow: hidden;
+}
+
+.page-content {
+  min-height: 500px;
+  display: inline-block;
+  width: 100%;
+  // background: #f9f9f9;
+}
+
+.App {
+  text-align: center;
+}
+
+.cardConatiner {
+  padding-left: 30px;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+
