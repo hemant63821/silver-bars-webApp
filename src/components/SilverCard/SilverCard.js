@@ -49,7 +49,7 @@ export default function SilverCard() {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <IconButton size="small" color="primary" iconStyle={styles.iconSize}>
+                <IconButton size="small" color="primary">
                     <DeleteIcon />
                     Remove
                 </IconButton>

@@ -1,11 +1,7 @@
 import { combineReducers } from "redux";
 
-import allTechs from './allTechReducer'
-import validateUser from './validateReducer'
-import allUsers from './allUsersReducer'
+import allSilvers from './allSilverBar-Reducer'
 
 export default combineReducers({
-    allTechs,
-    validateUser,
-    allUsers
+    allSilvers
 })
