@@ -10,7 +10,9 @@ class RegisterForm extends Component {
     state = {
         checkValue: '',
         value: 0,
-        acualQuantity: 0
+        acualQuantity: 0,
+        ratePerKg: 0,
+        calculatedValue: 0
     }
 
     decrement = () => {
@@ -34,18 +36,29 @@ class RegisterForm extends Component {
     }
 
     bindActualQuantity = (e) => {
-        this.setState({
-            acualQuantity: e.target.value,
-            value: Math.ceil(e.target.value)
-        })
+        if (e.target.id === 'outlined-quantity') {
+            this.setState({
+                acualQuantity: e.target.value,
+                value: Math.ceil(e.target.value)
+            })
+        }
+        else if (e.target.id === 'outlined-rate') {
+            this.setState({
+                ratePerKg: e.target.value
+            })
+        }
+
     }
 
     bindInputValue = (e) => {
         console.log('check', e.target.value)
         this.setState({
             checkValue: e.target.value,
-
         })
+    }
+
+    calculateTotalAmount = (quantity, rate) => {
+
     }
 
     render() {
@@ -58,7 +71,7 @@ class RegisterForm extends Component {
                                 <FormControl className='w-100'>
                                     <TextField
                                         id="outlined-secondary"
-                                        label="Outlined secondary"
+                                        label="User Id"
                                         variant="outlined"
                                         color="primary"
                                     />
@@ -74,7 +87,7 @@ class RegisterForm extends Component {
                                     <div className="col-sm-9">
                                         <FormControl className='w-100'>
                                             <TextField
-                                                id="outlined-secondary"
+                                                id="outlined-quantity"
                                                 label="Quantity"
                                                 variant="outlined"
                                                 color="primary"
@@ -87,24 +100,41 @@ class RegisterForm extends Component {
                                 </div>
 
                             </div>
-                            <div className="col-sm-6 mt-2">
+                            <div className="col-sm-6 mt-3">
                                 <FormControl className='w-100'>
                                     <TextField
-                                        id="outlined-primary"
-                                        label="User Id"
+                                        id="outlined-rate"
+                                        label="Rate Per Kilogram"
                                         variant="outlined"
                                         color="primary"
+                                        value={this.state.ratePerKg}
+                                        type="number"
+                                        onChange={(e) => this.bindActualQuantity(e)}
                                     />
 
                                 </FormControl>
                             </div>
-                            <div className="col-sm-6 mt-2">
+                            <div className="col-sm-6 mt-3">
                                 <FormControl className='w-100'>
                                     <TextField
                                         id="outlined-primary"
                                         label=""
                                         variant="outlined"
                                         color="primary"
+                                    />
+
+                                </FormControl>
+                            </div>
+
+                            <div className="col-sm-6 mt-3">
+                                <FormControl className='w-100'>
+                                    <TextField
+                                        id="outlined-primary"
+                                        label="Calculated Value"
+                                        variant="outlined"
+                                        color="primary"
+                                        value={this.state.calculatedValue}
+                                        disabled
                                     />
 
                                 </FormControl>
