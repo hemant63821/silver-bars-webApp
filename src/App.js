@@ -19,7 +19,9 @@ class App extends Component {
     return (
       <Router history={history}>
         <Provider store={Store}>
-          <Routes></Routes>
+          <div className="App" >
+            <Routes></Routes>
+          </div>
         </Provider>
       </Router>
     );
