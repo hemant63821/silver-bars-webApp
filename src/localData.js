@@ -1,8 +1,47 @@
-export const loginData = { "username": "hruday@gmail.com", "password": 'hruday123' };
 
-export const users = [{ "id": 1, "name": "test1", "age": "11", "gender": "male", "email": "test1@gmail.com", "phoneNo": "9415346313" },
-{ "id": 2, "name": "test2", "age": "12", "gender": "male", "email": "test2@gmail.com", "phoneNo": "9415346314" }, {
-    "id": 3, "name": "test3",
-    "age": "13", "gender": "male", "email": "test3@gmail.com", "phoneNo": "9415346315"
-}, { "id": 4, "name": "test4", "age": "14", "gender": "male", "email": "test4@gmail.com", "phoneNo": "9415346316" }, { "id": 5, "name": "test5", "age": "15", "gender": "male", "email": "test5@gmail.com", "phoneNo": "9415346317" }, { "id": 6, "name": "test6", "age": "16", "gender": "male", "email": "test6@gmail.com", "phoneNo": "9415346318" }]
+export const silverDefaultData = [{
+    "id": 1,
+    "userId": "101",
+    "orderQuantity": 35,
+    "pricePerKg": 400,
+    "type": "SELL",
+    "totalAmount": 14000
+},
+{
+    "id": 2,
+    "userId": "102",
+    "orderQuantity": 40,
+    "pricePerKg": 450,
+    "type": "SELL",
+    "totalAmount": 18000
+}, {
+    "id": 3,
+    "userId": "103",
+    "orderQuantity": 42,
+    "pricePerKg": 450,
+    "type": "BUY",
+    "totalAmount": 18900
+}, {
+    "id": 4,
+    "userId": "104",
+    "orderQuantity": 30,
+    "pricePerKg": 450,
+    "type": "BUY",
+    "totalAmount": 13500
+}, {
+    "id": 5,
+    "userId": "105",
+    "orderQuantity": 50,
+    "pricePerKg": 300,
+    "type": "BUY",
+    "totalAmount": 15000
+}, {
+    "id": 6,
+    "userId": "106",
+    "orderQuantity": 50,
+    "pricePerKg": 500,
+    "type": "SELL",
+    "totalAmount": 25000
+}
+]
 

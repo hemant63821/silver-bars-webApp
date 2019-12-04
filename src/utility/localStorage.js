@@ -1,29 +1,13 @@
-export const storeLoginData = (loginData) => {
-    const serializedState = JSON.stringify(loginData)
-    localStorage.setItem("credentials", serializedState);
-}
 
-export const getLoginData = () => {
-    try {
-        const serializedState = localStorage.getItem('credentials')
-        if (serializedState === null) {
-            return undefined;
-        }
-        return JSON.parse(serializedState)
-    } catch (err) {
-        return undefined;
-    }
-}
-
-export const storeUsers = (userData) => {
+export const storeSilverData = (userData) => {
     const serializedState = JSON.stringify(userData)
-    localStorage.setItem("users", serializedState);
+    localStorage.setItem("silvers", serializedState);
 }
 
 
-export const getUsers = () => {
+export const getAllSilverData = () => {
     try {
-        const serializedState = localStorage.getItem('users')
+        const serializedState = localStorage.getItem('silvers')
         if (serializedState === null) {
             return undefined;
         }

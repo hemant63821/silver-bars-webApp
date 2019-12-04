@@ -6,12 +6,11 @@ import history from './history';
 import Store from './Store';
 import Routes from './routes'
 import "../node_modules/font-awesome/css/font-awesome.min.css";
-import { storeLoginData, storeUsers } from './utility/localStorage'
-import { users, loginData } from './localData'
+import { storeSilverData } from './utility/localStorage'
+import { silverDefaultData } from './localData'
 
-console.log('check', loginData)
-storeLoginData(loginData);
-storeUsers(users);
+
+storeSilverData(silverDefaultData);
 history.push('/register')
 class App extends Component {
 
