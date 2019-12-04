@@ -7,7 +7,7 @@ class LiveOrders extends Component {
         return (
             <div className="grey-bg">
                 <div className="row">
-                    <div className="col-sm-4">
+                    <div className="col-sm-4 mb-4">
                         <SilverCard></SilverCard>
                     </div>
                     <div className="col-sm-4">
