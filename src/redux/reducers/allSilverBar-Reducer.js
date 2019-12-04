@@ -1,5 +1,6 @@
 import { GET_ALL_SILVER_ACTION } from '../../core/constants/action'
 import { newState } from '../../core/utility/newState'
+import { storeSilverData } from '../../utility/localStorage'
 
 const intialState = {
     silverData: [],
@@ -25,6 +26,7 @@ export default function allSilverBarReducer(state = intialState, action) {
         case GET_ALL_SILVER_ACTION.REMOVE:
             const { id, silverData: silvers } = action.payload
             const newSilverData = silvers.filter(itr => itr.id !== id)
+            storeSilverData(newSilverData)
             return newState(state, { silverData: newSilverData })
 
         default:

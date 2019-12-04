@@ -21,5 +21,5 @@ export function removeSilverById(id, silverData) {
 
 
 export function addSilver(silverData) {
-    return { type: GET_ALL_SILVER_ACTION.REMOVE, payload: { silverData } }
+    return { type: GET_ALL_SILVER_ACTION.ADD, payload: { silverData } }
 }

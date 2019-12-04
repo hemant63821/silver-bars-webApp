@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import silver from '../../assets/silverbar.jpg'
-import './SilverCard.scss'
+import './SilverCard.scss';
+
 
 const useStyles = makeStyles({
     card: {

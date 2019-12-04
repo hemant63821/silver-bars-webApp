@@ -1,31 +1,58 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import SilverCard from '../components/SilverCard/SilverCard'
 import { getAllSilvers, removeSilverById } from '../redux/actions/allSilverBar-Action'
 import { connect } from 'react-redux';
+import ConfirmDialog from '../components/ConfirmDialog/ConfirmDialog.jsx'
 
-class LiveOrders extends Component {
+class LiveOrders extends PureComponent {
 
     componentDidMount() {
         this.props.getAllSilvers()
     }
 
-    removeSilverData = (id) => {
-        console.log('check id', id)
-        this.props.removeSilverById(id, this.props.silvers)
-        // this.forceUpdate();
-        // this.props.getAllSilvers()
+    state = {
+        openDialogBox: false,
+        selectedId: null
     }
+
+    openDialog = (id) => {
+        this.setState({
+            openDialogBox: true,
+            selectedId: id
+        })
+    }
+
+    closeDialogBox = () => {
+        this.setState({
+            openDialogBox: false,
+            selectedId: null
+        })
+    }
+
+    removeSilverData = () => {
+        const { selectedId } = this.state
+        this.props.removeSilverById(selectedId, this.props.silvers)
+        this.setState({
+            openDialogBox: false,
+            selectedId: null
+        })
+    }
+
 
     render() {
         console.log('check all silvers', this.props.silvers)
         return (
             <div className="grey-bg">
+
+                {
+                    this.state.openDialogBox ? (<ConfirmDialog open={this.state.openDialogBox} handleClose={this.closeDialogBox} onDelete={this.removeSilverData}></ConfirmDialog>) : null
+                }
                 <div className="row">
                     {
                         this.props.silvers.length ? this.props.silvers.map((itr) => {
                             return (
                                 <div className="col-sm-4 mb-4" key={itr.id}>
-                                    <SilverCard userId={itr.userId} id={itr.id} onclick={this.removeSilverData}></SilverCard>
+                                    <SilverCard userId={itr.userId} id={itr.id} onclick={this.openDialog}></SilverCard>
                                 </div>
                             )
                         }) : null
