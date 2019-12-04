@@ -13,3 +13,13 @@ export function getAllSilvers() {
     function success(silverData) { return { type: GET_ALL_SILVER_ACTION.SUCCESS, payload: { ...silverData } } }
     function failure(error) { return { type: GET_ALL_SILVER_ACTION.FAILURE, payload: { error } } }
 }
+
+
+export function removeSilverById(id, silverData) {
+    return { type: GET_ALL_SILVER_ACTION.REMOVE, payload: { id, silverData } }
+}
+
+
+export function addSilver(silverData) {
+    return { type: GET_ALL_SILVER_ACTION.REMOVE, payload: { silverData } }
+}

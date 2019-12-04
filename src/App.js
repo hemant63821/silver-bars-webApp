@@ -10,7 +10,7 @@ import { storeSilverData } from './utility/localStorage'
 import { silverDefaultData } from './localData'
 
 
-storeSilverData(silverDefaultData);
+// storeSilverData(silverDefaultData);
 history.push('/register')
 class App extends Component {
 

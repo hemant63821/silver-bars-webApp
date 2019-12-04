@@ -25,9 +25,8 @@ const styles = {
     }
 }
 
-export default function SilverCard() {
+export default function SilverCard({ userId, onclick, id }) {
     const classes = useStyles();
-
     return (
         <Card className={classes.card}>
             <CardActionArea>
@@ -40,16 +39,16 @@ export default function SilverCard() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
-                </Typography>
+                        {userId}
+                    </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                         across all continents except Antarctica
-                </Typography>
+                    </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <IconButton size="small" color="primary">
+                <IconButton size="small" color="primary" onClick={() => onclick(id)}>
                     <DeleteIcon />
                     Remove
                 </IconButton>
