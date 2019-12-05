@@ -4,15 +4,20 @@ import CardContent from '@material-ui/core/CardContent';
 import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField'
 import Counter from '../Counter/Counter'
+import InputLabel from '@material-ui/core/InputLabel'
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button'
 
 class RegisterForm extends Component {
-
     state = {
         checkValue: '',
         value: 0,
         acualQuantity: 0,
         ratePerKg: 0,
-        calculatedValue: 0
+        calculatedValue: 0,
+        type: 'BUY',
+        userId: ''
     }
 
     decrement = () => {
@@ -36,6 +41,7 @@ class RegisterForm extends Component {
     }
 
     bindActualQuantity = (e) => {
+        console.log('check id', e.target.id, e.target.value)
         if (e.target.id === 'outlined-quantity') {
             this.setState({
                 acualQuantity: e.target.value,
@@ -48,16 +54,58 @@ class RegisterForm extends Component {
             })
         }
 
+        else if (e.target.id === 'outlined-userId') {
+            this.setState({
+                userId: e.target.value
+            })
+        }
+
+        else if (e.target.id === 'outlined-age-native-simple') {
+            console.log('check id', e.target.id, e.target.value)
+            this.setState({
+                type: e.target.value
+            })
+        }
     }
 
     bindInputValue = (e) => {
         console.log('check', e.target.value)
         this.setState({
             checkValue: e.target.value,
+
         })
     }
 
-    calculateTotalAmount = (quantity, rate) => {
+    calculateTotalAmount = () => {
+        const { acualQuantity, ratePerKg } = this.state
+        if (acualQuantity && ratePerKg) {
+            return acualQuantity * ratePerKg
+        }
+        else {
+            return 0
+        }
+    }
+
+    resetState = () => {
+        this.setState({
+            checkValue: '',
+            value: 0,
+            acualQuantity: 0,
+            ratePerKg: 0,
+            calculatedValue: 0,
+            type: 'BUY'
+        })
+    }
+
+    saveInventory = () => {
+        const { userId, value, acualQuantity, ratePerKg, calculatedValue, type } = this.state
+        const payload = {
+            userId: userId,
+            acualQuantity: acualQuantity,
+            ratePerKg: ratePerKg,
+            calculatedValue: calculatedValue,
+            type: type,
+        }
 
     }
 
@@ -70,10 +118,12 @@ class RegisterForm extends Component {
                             <div className="col-sm-6 mt-2">
                                 <FormControl className='w-100'>
                                     <TextField
-                                        id="outlined-secondary"
+                                        id="outlined-userId"
                                         label="User Id"
                                         variant="outlined"
                                         color="primary"
+                                        value={this.state.userId}
+                                        onChange={(e) => this.bindActualQuantity(e)}
                                     />
 
                                 </FormControl>
@@ -115,14 +165,22 @@ class RegisterForm extends Component {
                                 </FormControl>
                             </div>
                             <div className="col-sm-6 mt-3">
-                                <FormControl className='w-100'>
-                                    <TextField
-                                        id="outlined-primary"
-                                        label=""
-                                        variant="outlined"
-                                        color="primary"
-                                    />
-
+                                <FormControl variant="outlined" className="w-100">
+                                    <InputLabel id="outlined-age-native-simple">
+                                        Select Type
+                                      </InputLabel>
+                                    <Select
+                                        native
+                                        value={this.state.type}
+                                        onChange={(e) => this.bindActualQuantity(e)}
+                                        inputProps={{
+                                            name: 'age',
+                                            id: 'outlined-age-native-simple',
+                                        }}
+                                    >
+                                        <option value="BUY">BUY</option>
+                                        <option value="SELL">SELL</option>
+                                    </Select>
                                 </FormControl>
                             </div>
 
@@ -133,7 +191,7 @@ class RegisterForm extends Component {
                                         label="Calculated Value"
                                         variant="outlined"
                                         color="primary"
-                                        value={this.state.calculatedValue}
+                                        value={this.calculateTotalAmount()}
                                         disabled
                                     />
 
@@ -141,8 +199,18 @@ class RegisterForm extends Component {
                             </div>
                         </div>
                     </CardContent>
+                    <div className="row text-center mt-3 mb-4">
+                        <div className="col">
+                            <Button color="primary" variant="outlined" onClick={this.resetState}>
+                                Cancel
+                        </Button>
+                            <Button color="primary" className="ml-2" variant="outlined" onClick={this.saveInventory}>
+                                Save
+                        </Button>
+                        </div>
+                    </div>
                 </Card>
-            </div>
+            </div >
         )
     }
 }
