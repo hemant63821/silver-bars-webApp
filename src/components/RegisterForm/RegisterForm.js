@@ -98,13 +98,14 @@ class RegisterForm extends Component {
     }
 
     saveInventory = () => {
-        const { userId, value, acualQuantity, ratePerKg, calculatedValue, type } = this.state
+        const { userId, acualQuantity, ratePerKg, calculatedValue, type } = this.state
         const payload = {
             userId: userId,
-            acualQuantity: acualQuantity,
-            ratePerKg: ratePerKg,
-            calculatedValue: calculatedValue,
+            orderQuantity: acualQuantity,
+            pricePerKg: ratePerKg,
+            totalAmount: calculatedValue,
             type: type,
+            id: Math.random()
         }
 
     }

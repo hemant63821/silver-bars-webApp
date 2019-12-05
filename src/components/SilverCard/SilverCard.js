@@ -26,7 +26,7 @@ const styles = {
     }
 }
 
-export default function SilverCard({ userId, onclick, id }) {
+export default function SilverCard({ userId, onclick, id, quantity, rate, type, totalAmount }) {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
@@ -42,10 +42,28 @@ export default function SilverCard({ userId, onclick, id }) {
                     <Typography gutterBottom variant="h5" component="h2">
                         {userId}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
-                    </Typography>
+                    <div className="col">
+                        <div className="row">
+                            <label>UserId :</label>
+                            <span >{userId}</span>
+                        </div>
+                        <div className="row">
+                            <label>Quantity :</label>
+                            <span >{quantity}</span>
+                        </div>
+                        <div className="row">
+                            <label>Rate Per Kg :</label>
+                            <span >{rate}</span>
+                        </div>
+                        <div className="row">
+                            <label>Type :</label>
+                            <span>{type}</span>
+                        </div>
+                        <div className="row">
+                            <label>Total Price :</label>
+                            <span>{'$' + totalAmount}</span>
+                        </div>
+                    </div>
                 </CardContent>
             </CardActionArea>
             <CardActions>

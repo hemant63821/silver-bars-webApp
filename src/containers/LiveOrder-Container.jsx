@@ -52,7 +52,7 @@ class LiveOrders extends PureComponent {
                         this.props.silvers.length ? this.props.silvers.map((itr) => {
                             return (
                                 <div className="col-sm-4 mb-4" key={itr.id}>
-                                    <SilverCard userId={itr.userId} id={itr.id} onclick={this.openDialog}></SilverCard>
+                                    <SilverCard userId={itr.userId} id={itr.id} quantity={itr.orderQuantity} rate={itr.pricePerKg} onclick={this.openDialog} type={itr.type} totalAmount={itr.totalAmount}></SilverCard>
                                 </div>
                             )
                         }) : null
