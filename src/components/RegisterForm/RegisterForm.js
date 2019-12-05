@@ -8,14 +8,20 @@ import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button'
+import { getAllSilvers, addSilver } from '../../redux/actions/allSilverBar-Action'
+import { connect } from 'react-redux';
 
 class RegisterForm extends Component {
+
+    componentDidMount() {
+        this.props.getAllSilvers()
+    }
+
     state = {
         checkValue: '',
         value: 0,
         acualQuantity: 0,
         ratePerKg: 0,
-        calculatedValue: 0,
         type: 'BUY',
         userId: ''
     }
@@ -41,7 +47,6 @@ class RegisterForm extends Component {
     }
 
     bindActualQuantity = (e) => {
-        console.log('check id', e.target.id, e.target.value)
         if (e.target.id === 'outlined-quantity') {
             this.setState({
                 acualQuantity: e.target.value,
@@ -92,7 +97,6 @@ class RegisterForm extends Component {
             value: 0,
             acualQuantity: 0,
             ratePerKg: 0,
-            calculatedValue: 0,
             type: 'BUY'
         })
     }
@@ -103,11 +107,12 @@ class RegisterForm extends Component {
             userId: userId,
             orderQuantity: acualQuantity,
             pricePerKg: ratePerKg,
-            totalAmount: calculatedValue,
+            totalAmount: acualQuantity * ratePerKg,
             type: type,
             id: Math.random()
         }
-
+        console.log('check props for inventory', this.props.silvers)
+        this.props.addSilver(payload, this.props.silvers)
     }
 
     render() {
@@ -216,4 +221,8 @@ class RegisterForm extends Component {
     }
 }
 
-export default RegisterForm; 
+const mapStateToProps = state => ({
+    silvers: state.allSilvers.silverData ? state.allSilvers.silverData : []
+})
+
+export default connect(mapStateToProps, { getAllSilvers, addSilver })(RegisterForm);
