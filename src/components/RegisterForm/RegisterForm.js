@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button'
 import { getAllSilvers, addSilver } from '../../redux/actions/allSilverBar-Action'
 import { connect } from 'react-redux';
 
+
 class RegisterForm extends Component {
 
     componentDidMount() {
@@ -23,7 +24,8 @@ class RegisterForm extends Component {
         acualQuantity: 0,
         ratePerKg: 0,
         type: 'BUY',
-        userId: ''
+        userId: '',
+        inventortSaved: false
     }
 
     decrement = () => {
@@ -112,13 +114,21 @@ class RegisterForm extends Component {
             id: Math.random()
         }
         console.log('check props for inventory', this.props.silvers)
+        this.setState({
+            inventortSaved: true
+        })
         this.props.addSilver(payload, this.props.silvers)
+
     }
 
     render() {
         return (
             <div className="grey-bg">
+                {
+                    console.log('check props for inventory and save', this.state.inventortSaved)
+                }
                 <Card>
+
                     <CardContent>
                         <div className="row">
                             <div className="col-sm-6 mt-2">
