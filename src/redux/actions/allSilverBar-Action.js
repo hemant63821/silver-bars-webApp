@@ -1,12 +1,18 @@
 import { GET_ALL_SILVER_ACTION } from '../../core/constants/action'
 import { getAllSilverData } from '../../utility/localStorage'
+import { getAllAnimals } from '../../services/animalServices'
 
 export function getAllSilvers() {
-    console.log('check silver data', getAllSilverData())
+    console.log('check silver data', getAllAnimals())
     return dispatch => {
         dispatch(request())
-        const silverData = getAllSilverData()
+        const silverData = getAllSilverData();
         dispatch(success({ silverData }))
+        // getAllAnimals().then(res => {
+        //     const silverData = res
+        //     dispatch(success({ silverData }))
+        // })
+
     }
 
     function request() { return { type: GET_ALL_SILVER_ACTION.REQUEST } }

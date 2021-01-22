@@ -1,6 +1,6 @@
 export function handleResponse(response) {
     let apiResponse = response.data
-    if (response.status === 201) {
+    if (response) {
         return Promise.resolve(apiResponse);
     }
     else {
