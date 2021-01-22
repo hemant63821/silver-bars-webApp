@@ -16,6 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import history from '../../history'
 import WrappedRoutes from '../../WrappedRoutes/WrappedRoutes';
@@ -105,7 +106,15 @@ export default function MiniDrawer() {
     const navigateToRoute = (route) => {
         console.log('check incoming route', route)
         setHeaderName(route)
-        route === 'Register' ? history.push('/register') : history.push('/liveOrders')
+        if (route === 'Register') {
+            history.push('/register')
+        }
+        else if (route === 'Live Orders') {
+            history.push('/liveOrders')
+        }
+        else {
+            history.push('/test')
+        }
     }
 
     return (
@@ -155,9 +164,9 @@ export default function MiniDrawer() {
                 </div>
                 <Divider />
                 <List>
-                    {['Register', 'Live Orders'].map((text) => (
+                    {['Register', 'Live Orders', 'Test'].map((text) => (
                         <ListItem button key={text} onClick={() => navigateToRoute(text)}>
-                            <ListItemIcon>{text === 'Register' ? <AssignmentIcon /> : <AssignmentTurnedInIcon />}</ListItemIcon>
+                            <ListItemIcon>{text === 'Register' ? <AssignmentIcon /> : (text == 'Test' ? <AddShoppingCartIcon /> : <AssignmentTurnedInIcon />)}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}

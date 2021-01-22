@@ -3,7 +3,7 @@ import { API_ENDPOINTS } from '../core/constants/apiEndPoint'
 import { handleError } from '../core/handler/handleError'
 import { handleResponse } from '../core/handler/handleResponse'
 
-const API_ENDPOINTS_GET_ALL_ANIMALS = API_ENDPOINTS.ANIMALS.GET_ANIMALS
+const API_ENDPOINTS_GET_ALL_ANIMALS = API_ENDPOINTS
 const API_ENDPOINTS_GET_ANIMAL = API_ENDPOINTS.ANIMALS.GET_ANIMAL
 
 
